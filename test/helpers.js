@@ -19,3 +19,51 @@ const src = babelResult.code
 jsdom({
   html, src
 });
+const cats = ["Milo", "Otis", "Garfield"];
+
+module.exports = { cats };
+//const cats = ["Milo", "Otis", "Garfield"];
+
+const destructivelyAppendCat = (name) => {
+  cats.push(name);
+};
+
+const destructivelyPrependCat = (name) => {
+  cats.unshift(name);
+};
+
+const destructivelyRemoveLastCat = () => {
+  cats.pop();
+};
+
+const destructivelyRemoveFirstCat = () => {
+  cats.shift();
+};
+
+const appendCat = (name) => {
+  return [...cats, name];
+};
+
+const prependCat = (name) => {
+  return [name, ...cats];
+};
+
+const removeLastCat = () => {
+  return cats.slice(0, -1);
+};
+
+const removeFirstCat = () => {
+  return cats.slice(1);
+};
+
+module.exports = {
+  cats,
+  destructivelyAppendCat,
+  destructivelyPrependCat,
+  destructivelyRemoveLastCat,
+  destructivelyRemoveFirstCat,
+  appendCat,
+  prependCat,
+  removeLastCat,
+  removeFirstCat
+};
